@@ -1,0 +1,42 @@
+<!-- <div>
+    <header>
+        <h3>Acme Bank</h3>
+    </header> 
+</div><br /> -->
+<div class="container" style="text-align: center;">
+    <h3>Fibre products</h3><br />
+    <p>Select a Fibre infrastructure provider below, browse the products available and complete a coverage search</p>
+    
+    <div class="row">
+        <div class="column" *ngFor="let item of providerInfo; let i = index">
+            <img *ngIf="i<10" src="{{item.url}}" alt="{{item.name}}" style="width:100%">
+        </div>
+    </div><br />
+    <div class="row">
+        <div class='col-md-2'>
+            <ejs-dropdownlist #filterBy [dataSource]='filterData' [fields]='fields' placeholder='Filter By:' [popupHeight]='height'></ejs-dropdownlist>
+        </div>
+        <div class='col-md-2'>
+            <ejs-multiselect #checkbox [dataSource]='priceRanges' placeholder='Price:' [fields]='fields' [mode]='mode' [popupHeight]='height'
+                [showDropDownIcon]='true' showSelectAll='true'></ejs-multiselect>
+        </div>
+        <div class="pull-left">
+            <button ejs-button cssClass="e-info" (click)="OnClick()" class="block">{{buttonTxt}}</button>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="grid" *ngFor="let item of providerInfo">
+            <div class="col-md-8">
+
+            </div>
+            <div class="col-md-4">
+
+            </div>
+            <img src="{{item.url}}" alt="{{item.name}}" style="width:100%">
+        </div>
+        <!-- <div ${{ style: { display: "grid" } }}>
+            ${providerInfo.map(p => html.fragment`<img src="${p.url}" alt="${p.name}">`)}
+        </div> -->
+    </div>
+</div>
